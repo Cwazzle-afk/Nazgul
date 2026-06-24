@@ -12,6 +12,9 @@ def ask_for_input():
     user_input = int(input("(1) Add a nazgul to the battlefield\n"
                    "(2) Tempt the ring\n"
                    "(3) Remove a creature\n"
+                   "(4) Add Roaming Throne to the battlefield\n"
+                   "(5) Add a temporary Nazgul until end of turn\n"
+                   "(6) End the Turn\n"
                    "(0) Exit"
                    "\n\nPlease enter what you would like to do: "
                    ))
@@ -71,6 +74,15 @@ def remove_creature():
         if name["name"] == nazgul_to_remove:
             nazgul_on_battlefield.remove(name) 
 
+def add_roaming_throne():
+    return
+def add_temporary_nazgul():
+    return
+def end_the_turn():
+    return
+
+
+
 user_input = ask_for_input()
 
 while user_input != 0:
@@ -80,6 +92,13 @@ while user_input != 0:
         tempt_the_ring()
     elif user_input == 3:
         remove_creature()
+    elif user_input == 4:
+        add_roaming_throne()
+    elif user_input == 5:
+        add_temporary_nazgul()
+    elif user_input == 6:
+        end_the_turn()
+
     
     user_input = ask_for_input()
 
