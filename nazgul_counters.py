@@ -49,38 +49,17 @@ def display_nazgul():
         print(f"Counters on Nazgul: {display["name"]} has {display["counters"]} counters.\n")
 
 def add_nazgul():
-    clear_terminal()
-    display_nazgul() 
-    nazgul_name = ''
+    nazgul_name = (f"Nazgul {len(nazgul_on_battlefield) + 1}")
     counters = 0
-    
-
-    while True:
-        nazgul_name = input("Plesae enter the name of the Nazgul you'll be adding to the battlefield or type \"cancel\" to back out: ")
-        
-        if nazgul_name == 'cancel':
-            return
-        
-        nazgul_already_in_play = False
-
-        for nazgul in nazgul_on_battlefield:
-            if nazgul["name"] == nazgul_name:
-                nazgul_already_in_play = True
-                
-        if nazgul_already_in_play:
-            print("Please enter a name not already on the list")
-        else:
-            break
 
     nazgul_to_add = {
         "name": nazgul_name,
-        "counters": counters
+        "counters": counters 
     }
 
     nazgul_on_battlefield.append(nazgul_to_add)
-
-    print(f"\nnumber of Nazgul: {len(nazgul_on_battlefield)}\n")
     
+    print(f"\nnumber of Nazgul: {len(nazgul_on_battlefield)}\n")
         
 user_input = ask_for_input()
 
