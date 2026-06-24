@@ -11,7 +11,7 @@ def ask_for_input():
     display_nazgul()
     user_input = int(input("(1) Add a nazgul to the battlefield\n"
                    "(2) Tempt the ring\n"
-                   "(3) Remove a nazgul\n"
+                   "(3) Remove a creature\n"
                    "(0) Exit"
                    "\n\nPlease enter what you would like to do: "
                    ))
@@ -41,12 +41,13 @@ def display_nazgul():
         return
     for name in nazgul_on_battlefield:
         names.append(name["name"])
-    print("Nazgul on the battlefield: ", end='')
+    print("Nazgul on the battlefield: \n", end='')
     for nazgul in names:
         print(nazgul, end=', ')
     print("\n\n")
+    print("Counters on Nazgul: ")
     for display in nazgul_on_battlefield:
-        print(f"Counters on Nazgul: {display["name"]} has {display["counters"]} counters.\n")
+        print(f"{display["name"]} has {display["counters"]} counters.\n")
 
 def add_nazgul():
     nazgul_name = (f"Nazgul {len(nazgul_on_battlefield) + 1}")
@@ -60,13 +61,25 @@ def add_nazgul():
     nazgul_on_battlefield.append(nazgul_to_add)
     
     print(f"\nnumber of Nazgul: {len(nazgul_on_battlefield)}\n")
-        
+
+def remove_creature():
+    clear_terminal()
+    display_nazgul()
+    nazgul_to_remove = input("Please enter which creature you would like to remove: ")
+
+    for name in nazgul_on_battlefield:
+        if name["name"] == nazgul_to_remove:
+            nazgul_on_battlefield.remove(name) 
+
 user_input = ask_for_input()
 
 while user_input != 0:
     if user_input == 1:
         add_nazgul()
-    if user_input == 2:
+    elif user_input == 2:
         tempt_the_ring()
+    elif user_input == 3:
+        remove_creature()
+    
     user_input = ask_for_input()
 
